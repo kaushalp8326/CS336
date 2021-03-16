@@ -1,6 +1,7 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import ="java.sql.*" %>
+<%@ include file="Database.jsp" %>
 <%
     String userid = request.getParameter("newUsername");   
     String pwd = request.getParameter("newPassword");
@@ -13,7 +14,7 @@
     else
     {
 	    Class.forName("com.mysql.jdbc.Driver");
-	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS336","root", "12q23w34e45r");
+	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS336","root", dbPass);
 	    Statement st = con.createStatement();
 	    Statement ru = con.createStatement();
 	    ResultSet rs;

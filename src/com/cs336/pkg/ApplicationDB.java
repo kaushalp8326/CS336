@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ApplicationDB {
+	private static String dbPass;
+	
+	public static void getPass(String str){
+		dbPass=str;
+	}
 	
 	public ApplicationDB(){
 		
@@ -27,7 +32,7 @@ public class ApplicationDB {
 		}
 		try {
 			//Create a connection to your DB
-			connection = DriverManager.getConnection(connectionUrl,"root", "Kaushal11");
+			connection = DriverManager.getConnection(connectionUrl,"root", dbPass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
