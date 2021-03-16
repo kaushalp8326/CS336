@@ -9,7 +9,7 @@ public class ApplicationDB {
 	private static String dbUser;
 	private static String dbPass;
 	
-	public static void getPass(String URL, String User, String Pass){
+	public static void getDB(String URL, String User, String Pass){
 		dbURL=URL;
 		dbUser=User;
 		dbPass=Pass;

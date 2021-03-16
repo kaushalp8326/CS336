@@ -3,5 +3,5 @@
 <%! String dbUser = "root"; %>
 <%! String dbPass = "Kaushal11"; %>
 <%
-ApplicationDB.getPass(dbURL, dbUser, dbPass);
+ApplicationDB.getDB(dbURL, dbUser, dbPass);
 %>
