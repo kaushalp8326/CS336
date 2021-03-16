@@ -5,10 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ApplicationDB {
+	private static String dbURL;
+	private static String dbUser;
 	private static String dbPass;
 	
-	public static void getPass(String str){
-		dbPass=str;
+	public static void getPass(String URL, String User, String Pass){
+		dbURL=URL;
+		dbUser=User;
+		dbPass=Pass;
 	}
 	
 	public ApplicationDB(){
@@ -17,7 +21,7 @@ public class ApplicationDB {
 
 	public Connection getConnection(){
 		//Create a connection string
-		String connectionUrl = "jdbc:mysql://localhost:3306/CS336";
+		String connectionUrl = dbURL;
 		Connection connection = null;
 		
 		try {
@@ -32,7 +36,7 @@ public class ApplicationDB {
 		}
 		try {
 			//Create a connection to your DB
-			connection = DriverManager.getConnection(connectionUrl,"root", dbPass);
+			connection = DriverManager.getConnection(connectionUrl, dbUser, dbPass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

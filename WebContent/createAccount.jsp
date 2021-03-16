@@ -14,7 +14,7 @@
     else
     {
 	    Class.forName("com.mysql.jdbc.Driver");
-	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/CS336","root", dbPass);
+	    Connection con = DriverManager.getConnection(dbURL, dbUser, dbPass);
 	    Statement st = con.createStatement();
 	    Statement ru = con.createStatement();
 	    ResultSet rs;
