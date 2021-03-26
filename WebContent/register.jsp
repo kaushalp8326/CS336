@@ -10,9 +10,12 @@
 	</head>
 	<body>
 		<form action="createAccount.jsp" method="POST">
-			New Username: <input type = "text" name = "newUsername" required/> <br><br>
-			New Password: <input type = "password" name = "newPassword" required/> <br><br>
-			Confirm Password: <input type = "password" name = "confirmPassword" required/> <br><br>
+			<label for="newUsername">New Username:</label>
+			<input type="text" name="newUsername" id="newUsername" required/> <br><br>
+			<label for="newPassword">New Password:</label>
+			<input type="password" name="newPassword" id="newPassword" required/> <br><br>
+			<label for="confirmPassword">Confirm Password:</label>
+			<input type="password" name="confirmPassword" id="confirmPassword" required/> <br><br>
 			<input type="submit" value="Register"/>
 			Already have an account? <a href='login.jsp'>Log in</a> here.
 		</form>
