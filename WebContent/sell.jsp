@@ -116,8 +116,8 @@
 							<input type="text" name="shoeColor" id="shoeColor"/>
 						</td>
 					</tr>
-                	<tr id="shirtRow" style="visibility:hidden">
-                		<td>
+					<tr id="shirtRow" style="visibility:hidden">
+						<td>
 							<label for="shirtStyle">Style:</label>
 							<input type="text" name="shirtStyle" id="shirtStyle"/>
 						</td>
@@ -129,9 +129,9 @@
 							<label for="shirtFabric">Fabric:</label>
 							<input type="text" name="shirtFabric" id="shirtFabric"/>
 						</td>
-                	</tr>
-                	<tr id="pantRow" style="visibility:hidden">
-                		<td>
+					</tr>
+					<tr id="pantRow" style="visibility:hidden">
+						<td>
 							<label for="pantBrand">Brand:</label>
 							<input type="text" name="pantBrand" id="pantBrand"/>
 						</td>
@@ -143,8 +143,8 @@
 							<label for="pantFabric">Fabric:</label>
 							<input type="text" name="pantFabric" id="pantFabric"/>
 						</td>
-                	</tr>
-                </table>
+					</tr>
+				</table>
 			</div>
 			<label for="itemName">Item Name:</label>
 			<input type="text" name="itemName" id="itemName" required/> <br><br>
