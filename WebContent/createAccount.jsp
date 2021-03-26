@@ -1,6 +1,6 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ page import ="java.sql.*" %>
+<%@ page import="java.sql.*" %>
 <%@ include file="Database.jsp" %>
 <%
     String userid = request.getParameter("newUsername");   
