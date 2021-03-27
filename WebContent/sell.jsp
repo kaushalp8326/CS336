@@ -9,7 +9,9 @@
 		<script>
 		function setMinDate() {
 			var present = new Date();
-			var dd = present.getDate() + 1;
+			//Make the minimum end date at least one day from the present
+			present.setDate(present.getDate() + 1);
+			var dd = present.getDate();
 			if(dd<10){
 				dd = "0" + dd;
 			}
@@ -18,7 +20,15 @@
 				MM = "0" + MM;
 			}
 			var yyyy = present.getFullYear();
-			var minimum = yyyy + "-" + MM + "-" + dd + "T00:00";
+			var hh = present.getHours();
+			if(hh<10){
+				hh = "0" + hh;
+			}
+			var mm = present.getMinutes();
+			if(mm<10){
+				mm = "0" + mm;
+			}
+			var minimum = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
 			document.getElementById("closeDate").min = minimum;
 		}
 		</script>
@@ -156,6 +166,8 @@
 			<input type="number" step="0.01" min="0" name="bidIncrement" id="bidIncrement" required/> <br><br>
 			<label for="closeDate">Auction End Date:</label>
 			<input type="datetime-local" name="closeDate" id="closeDate" onclick="setMinDate();" required/> <br><br>
+			<label for="temp">temp</label>
+			<input type="text" name="temp" id="temp" required/> <br><br>
 			<input type="submit" value="Post Item For Sale"/>
 		</form>
 	</body>
