@@ -166,8 +166,6 @@
 			<input type="number" step="0.01" min="0" name="bidIncrement" id="bidIncrement" required/> <br><br>
 			<label for="closeDate">Auction End Date:</label>
 			<input type="datetime-local" name="closeDate" id="closeDate" onclick="setMinDate();" required/> <br><br>
-			<label for="temp">temp</label>
-			<input type="text" name="temp" id="temp" required/> <br><br>
 			<input type="submit" value="Post Item For Sale"/>
 		</form>
 	</body>
