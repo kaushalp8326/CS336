@@ -4,9 +4,10 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <!DOCTYPE html>
 <html>
+	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Login Form</title>
+		<h1>Login</h1>
 	</head>
 	<body>
 		<form action="checkLoginDetails.jsp" method="POST">

@@ -3,9 +3,10 @@
 <%@ page import="java.time.LocalDateTime" %>
 <!DOCTYPE html>
 <html>
+	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Sell</title>
+		<h1>Sell an Item</h1>
 		<script>
 		function setMinDate() {
 			var present = new Date();
@@ -167,6 +168,10 @@
 			<label for="closeDate">Auction End Date:</label>
 			<input type="datetime-local" name="closeDate" id="closeDate" onclick="setMinDate();" required/> <br><br>
 			<input type="submit" value="Post Item For Sale"/>
+		</form>
+		<br>
+		<form action="home.jsp">
+			<button type="submit">Cancel</button>
 		</form>
 	</body>
 </html>

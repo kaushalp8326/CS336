@@ -2,8 +2,9 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <!DOCTYPE html>
 <html>
+	<%@ include file = "header.jsp" %>
 	<head>
-		<title>Home Page</title>
+		<h1>Home</h1>
 	</head>
 	<% if ((session.getAttribute("user") == null)) { %>
 		<body>

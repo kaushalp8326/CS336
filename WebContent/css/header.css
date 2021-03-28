@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+#headerNav{
+	width: 100vw;
+	background-color: #D6EFFF;
+}
+
+#headerUl{
+	padding: 0;
+	display: flex;
+}
+
+#headerH1{
+	margin: 0;
+	font-size: 2vw;
+}
+
+#headerLi1{
+	list-style-type: none;
+	margin: 0 5vw;
+	font-size: 2vw;
+}
+
+#headerLi2{
+	list-style-type: none;
+	margin: 0 5vw;
+	font-size: 2vw;
+}
+
+#headerA1{
+	text-decoration: none;
+}
+
+#headerA2{
+	text-decoration: none;
+}

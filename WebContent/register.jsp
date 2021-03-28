@@ -4,9 +4,10 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <!DOCTYPE html>
 <html>
+	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Register Form</title>
+		<h1>Register</h1>
 	</head>
 	<body>
 		<form action="createAccount.jsp" method="POST">
