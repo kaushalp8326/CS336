@@ -7,9 +7,10 @@
 	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<h1>Register</h1>
+		<title>Register</title>
 	</head>
 	<body>
+		<h1>Register</h1>
 		<form action="createAccount.jsp" method="POST">
 			<label for="newUsername">New Username:</label>
 			<input type="text" name="newUsername" id="newUsername" required/> <br><br>

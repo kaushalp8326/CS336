@@ -9,15 +9,18 @@
 	<body>
 		<nav id="headerNav">
 			<ul id="headerUl">
-				<li>
+				<li id="headerLiH1">
 					<h1 id="headerH1">Site Name</h1>
 				</li>
-				<li id="headerLi1">
-					<a id="headerA1" href="home.jsp">Home</a>
-				</li>
 				<% if(session.getAttribute("user")!=null){ %>
+					<li id="headerLi1">
+						<a id="headerA1" href="home.jsp">Home</a>
+					</li>
 					<li id="headerLi2">
 						<a id="headerA2" href="sell.jsp">Sell</a>
+					</li>
+					<li id="headerLiLogout">
+						<a id="headerALogout" href="logout.jsp">Logout</a>
 					</li>
 				<% } %>
 			</ul>

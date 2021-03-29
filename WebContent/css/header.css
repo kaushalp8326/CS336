@@ -10,6 +10,12 @@
 	display: flex;
 }
 
+#headerLiH1{
+	list-style-type: none;
+	margin: 0;
+	font-size: 2vw;
+}
+
 #headerH1{
 	margin: 0;
 	font-size: 2vw;
@@ -27,10 +33,20 @@
 	font-size: 2vw;
 }
 
+#headerLiLogout{
+	list-style-type: none;
+	margin: 0 5vw;
+	font-size: 2vw;
+}
+
 #headerA1{
 	text-decoration: none;
 }
 
 #headerA2{
+	text-decoration: none;
+}
+
+#headerALogout{
 	text-decoration: none;
 }

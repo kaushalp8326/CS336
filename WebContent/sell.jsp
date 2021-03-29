@@ -6,7 +6,7 @@
 	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<h1>Sell an Item</h1>
+		<title>Sell an Item</title>
 		<script>
 		function setMinDate() {
 			var present = new Date();
@@ -100,6 +100,7 @@
 		</script>
 	</head>
 	<body>
+		<h1>Sell an Item</h1>
 		<form action="checkSellFields.jsp" method="POST">
 			<div>
 				<p>Item Type:</p>
@@ -160,7 +161,7 @@
 			<label for="itemName">Item Name:</label>
 			<input type="text" name="itemName" id="itemName" required/> <br><br>
 			<label for="initialPrice">Initial Price:</label>
-			<input type="number" step="0.01" min="0" name="initialPrice" id="initialPrice" required/> <br><br>
+			<input type="number" step="0.01" min="0" name="initialPrice" id="initialPrice" onchange="document.getElementById('minimumPrice').min=this.value;" required/> <br><br>
 			<label for="minimumPrice">Minimum Selling Price:</label>
 			<input type="number" step="0.01" min="0" name="minimumPrice" id="minimumPrice" required/> <br><br>
 			<label for="bidIncrement">Minimum Bid Increment:</label>

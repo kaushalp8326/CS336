@@ -7,9 +7,10 @@
 	<%@ include file = "header.jsp" %>
 	<head>
 		<meta charset="ISO-8859-1">
-		<h1>Login</h1>
+		<title>Login</title>
 	</head>
 	<body>
+		<h1>Login</h1>
 		<form action="checkLoginDetails.jsp" method="POST">
 			<label for="username">Username:</label>
 			<input type="text" name="username" id="username" required/> <br><br>

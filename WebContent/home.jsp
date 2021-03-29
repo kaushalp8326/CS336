@@ -4,15 +4,17 @@
 <html>
 	<%@ include file = "header.jsp" %>
 	<head>
-		<h1>Home</h1>
+		<title>Home</title>
 	</head>
 	<% if ((session.getAttribute("user") == null)) { %>
 		<body>
+			<h1>Home</h1>
 			You are not logged in. <br>
 			Please <a href="login.jsp">log in</a>.
 		</body>
 	<% } else { %>
 		<body>
+			<h1>Home</h1>
 			Welcome <%=session.getAttribute("user")%>! <br><br> <% //this will display the username that is stored in the session. %>
 			<form action="sell.jsp">
 				<button type="submit">Sell an item</button>
