@@ -30,7 +30,7 @@
 				mm = "0" + mm;
 			}
 			var minimum = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
-			document.getElementById("closeDate").min = minimum;
+			document.getElementById("endDate").min = minimum;
 		}
 		</script>
 		<script>
@@ -166,8 +166,8 @@
 			<input type="number" step="0.01" min="0" name="minimumPrice" id="minimumPrice" required/> <br><br>
 			<label for="bidIncrement">Minimum Bid Increment:</label>
 			<input type="number" step="0.01" min="0" name="bidIncrement" id="bidIncrement" required/> <br><br>
-			<label for="closeDate">Auction End Date:</label>
-			<input type="datetime-local" name="closeDate" id="closeDate" onclick="setMinDate();" required/> <br><br>
+			<label for="endDate">Auction End Date:</label>
+			<input type="datetime-local" name="endDate" id="endDate" onclick="setMinDate();" required/> <br><br>
 			<input type="submit" value="Post Item For Sale"/>
 		</form>
 		<br>
