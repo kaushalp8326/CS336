@@ -9,7 +9,6 @@
 	String itemType = request.getParameter("itemType");
 	String itemName = request.getParameter("itemName");   
 	Double initialPrice = Double.parseDouble(request.getParameter("initialPrice"));
-	//Double minimumPrice = Double.parseDouble(request.getParameter("minimumPrice"));
 	Double minimumPrice;
 	System.out.println("mp:"+request.getParameter("minimumPrice"));
 	if(request.getParameter("minimumPrice")==null || request.getParameter("minimumPrice").isEmpty()){

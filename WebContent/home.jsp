@@ -16,7 +16,7 @@
 			Please <a href="login.jsp">log in</a>.
 		</body>
 	<% } else { %>
-		<body onLoad="addAlerts()">
+		<body>
 			<h1>Home</h1>
 			Welcome <%=session.getAttribute("user")%>! <br><br> <% //this will display the username that is stored in the session. %>
 			<form action="sell.jsp">
