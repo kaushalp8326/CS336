@@ -6,11 +6,11 @@
     [] a buyer should be able to bid
 	    [] let the buyer set a new bid
 	    [] alert other buyers of the item that a higher bid has been placed 
-  [] define the winner of the auction
-	[] when the closing time has come, check if the seller has set a reserve
-	    [] if yes: if the reserve is higher than the last bid none is the winner.
-	    [] if no: whoever has the higher bid is the winner
-		[] alert the winner that they won the auction
+  [X] define the winner of the auction
+	[X] when the closing time has come, check if the seller has set a reserve
+	    [X] if yes: if the reserve is higher than the last bid none is the winner.
+	    [X] if no: whoever has the higher bid is the winner
+		[X] alert the winner that they won the auction
 
 
 
