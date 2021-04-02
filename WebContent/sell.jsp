@@ -163,7 +163,7 @@
 			<label for="initialPrice">Initial Price:</label>
 			<input type="number" step="0.01" min="0" name="initialPrice" id="initialPrice" onchange="document.getElementById('minimumPrice').min=this.value;" required/> <br><br>
 			<label for="minimumPrice">Minimum Selling Price:</label>
-			<input type="number" step="0.01" min="0" name="minimumPrice" id="minimumPrice" required/> <br><br>
+			<input type="number" step="0.01" min="0" name="minimumPrice" id="minimumPrice"/> <br><br>
 			<label for="bidIncrement">Minimum Bid Increment:</label>
 			<input type="number" step="0.01" min="0" name="bidIncrement" id="bidIncrement" required/> <br><br>
 			<label for="endDate">Auction End Date:</label>

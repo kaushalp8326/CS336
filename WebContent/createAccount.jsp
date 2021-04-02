@@ -23,7 +23,6 @@
 	        out.println(userid + " is already taken.");
 	        out.println("Please <a href='register.jsp'>try again.</a>");
 	    } else {
-	    	//out.println("insert into users values " + "('" + userid + "', '" + pwd + "')");
 	    	ru.executeUpdate("insert into users(username, password, type) values " + "('" + userid + "', '" + pwd + "', 'user'" + ")");
 	    	out.println("Registration success! Please <a href='login.jsp'>log in.</a>");
 	    }

@@ -9,7 +9,14 @@
 	String itemType = request.getParameter("itemType");
 	String itemName = request.getParameter("itemName");   
 	Double initialPrice = Double.parseDouble(request.getParameter("initialPrice"));
-	Double minimumPrice = Double.parseDouble(request.getParameter("minimumPrice"));
+	//Double minimumPrice = Double.parseDouble(request.getParameter("minimumPrice"));
+	Double minimumPrice;
+	System.out.println("mp:"+request.getParameter("minimumPrice"));
+	if(request.getParameter("minimumPrice")==null || request.getParameter("minimumPrice").isEmpty()){
+		minimumPrice = 0.0;
+	}else{
+		minimumPrice = Double.parseDouble(request.getParameter("minimumPrice"));
+	}
 	Double bidIncrement = Double.parseDouble(request.getParameter("bidIncrement"));
 	LocalDateTime startDate = LocalDateTime.now();
 	LocalDateTime endDate = LocalDateTime.parse(request.getParameter("endDate"));
