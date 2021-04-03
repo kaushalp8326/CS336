@@ -10,7 +10,6 @@
 	String itemName = request.getParameter("itemName");   
 	Double initialPrice = Double.parseDouble(request.getParameter("initialPrice"));
 	Double minimumPrice;
-	System.out.println("mp:"+request.getParameter("minimumPrice"));
 	if(request.getParameter("minimumPrice")==null || request.getParameter("minimumPrice").isEmpty()){
 		minimumPrice = 0.0;
 	}else{
@@ -72,6 +71,7 @@
 		insertShoes.setString(2, brand);
 		insertShoes.setString(3, shoeSize);
 		insertShoes.setString(4, color);
+		insertShoes.executeUpdate();
 	}else if(itemType.equals("shirts")){
 		//has fields PID, style, shirtSize, fabric
 		String style = request.getParameter("shirtStyle");
@@ -84,6 +84,7 @@
 		insertShirts.setString(2, style);
 		insertShirts.setString(3, shirtSize);
 		insertShirts.setString(4, fabric);
+		insertShirts.executeUpdate();
 	}else{
 		//itemType is pants
 		//has fields PID, brand, pantsSize, fabric
@@ -97,6 +98,7 @@
 		insertPants.setString(2, brand);
 		insertPants.setString(3, pantsSize);
 		insertPants.setString(4, fabric);
+		insertPants.executeUpdate();
 	}
 	
 	//redirect to home page
