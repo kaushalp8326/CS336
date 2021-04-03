@@ -20,7 +20,7 @@
 						<a id="headerA2" href="sell.jsp">Sell</a>
 					</li>
 					<li id="headerLiLogout">
-						<a id="headerALogout" href="logout.jsp">Log Out</a>
+						<a id="headerALogout" href="logout.jsp">Logout</a>
 					</li>
 				<% } %>
 			</ul>
