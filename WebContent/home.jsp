@@ -36,7 +36,7 @@
 				<%
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection(dbURL, dbUser, dbPass);
-				String searchClothingAuctionsString = "select * from clothingAuctions";
+				String searchClothingAuctionsString = "select * from clothingAuctions order by endDate desc";
 				PreparedStatement searchClothingAuctions = con.prepareStatement(searchClothingAuctionsString);
 				ResultSet rs = searchClothingAuctions.executeQuery();
 				while(rs.next()){
