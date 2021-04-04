@@ -27,6 +27,10 @@
 				<button type="submit">Log Out</button>
 			</form>
 			<br>
+			<form action="viewListing.jsp">
+				<button type="submit">View Listing</button>
+			</form>
+			<br>
 			<table id="alertsTable">
 				<thead>
 					<tr>

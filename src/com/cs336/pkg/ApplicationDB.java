@@ -19,7 +19,7 @@ public class ApplicationDB {
 		
 	}
 
-	public Connection getConnection(){
+	public static Connection getConnection(){
 		//Create a connection string
 		String connectionUrl = dbURL;
 		Connection connection = null;
