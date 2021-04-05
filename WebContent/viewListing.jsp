@@ -9,6 +9,7 @@
 <%@ include file="header.jsp"%>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/viewListing.css">
 <title>Current Listings</title>
 </head>
 <%

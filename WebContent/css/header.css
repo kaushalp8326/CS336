@@ -13,40 +13,39 @@
 #headerLiH1{
 	list-style-type: none;
 	margin: 0;
-	font-size: 2vw;
 }
 
 #headerH1{
 	margin: 0;
-	font-size: 2vw;
+	font-size: 27px;
 }
 
 #headerLi1{
 	list-style-type: none;
 	margin: 0 5vw;
-	font-size: 2vw;
 }
 
 #headerLi2{
 	list-style-type: none;
 	margin: 0 5vw;
-	font-size: 2vw;
 }
 
 #headerLiLogout{
 	list-style-type: none;
 	margin: 0 5vw;
-	font-size: 2vw;
 }
 
 #headerA1{
 	text-decoration: none;
+	font-size: 27px;
 }
 
 #headerA2{
 	text-decoration: none;
+	font-size: 27px;
 }
 
 #headerALogout{
 	text-decoration: none;
+	font-size: 27px;
 }
