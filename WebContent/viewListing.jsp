@@ -42,7 +42,6 @@ if ((userid == null)) {
 			<td>End Date</td>
 		</tr>
 		<%
-		System.out.println("Here are the listings for today");
 		for (ListingDetails list : currentList) {
 		%>
 		<tr>

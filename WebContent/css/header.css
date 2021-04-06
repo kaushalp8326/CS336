@@ -1,51 +1,61 @@
 @charset "ISO-8859-1";
 
-#headerNav{
+#headerNav {
 	width: 100vw;
 	background-color: #D6EFFF;
 }
 
-#headerUl{
+#headerUl {
 	padding: 0;
 	display: flex;
 }
 
-#headerLiH1{
+#headerLiH1 {
 	list-style-type: none;
 	margin: 0;
 }
 
-#headerH1{
+#headerH1 {
 	margin: 0;
 	font-size: 27px;
 }
 
-#headerLi1{
+#headerLi1 {
 	list-style-type: none;
 	margin: 0 5vw;
 }
 
-#headerLi2{
+#headerLi2 {
 	list-style-type: none;
 	margin: 0 5vw;
 }
 
-#headerLiLogout{
+#headerLi3 {
 	list-style-type: none;
 	margin: 0 5vw;
 }
 
-#headerA1{
+#headerLiLogout {
+	list-style-type: none;
+	margin: 0 5vw;
+}
+
+#headerA1 {
 	text-decoration: none;
 	font-size: 27px;
 }
 
-#headerA2{
+#headerA2 {
 	text-decoration: none;
 	font-size: 27px;
 }
 
-#headerALogout{
+#headerA3 {
+	text-decoration: none;
+	font-size: 27px;
+}
+
+#headerALogout {
 	text-decoration: none;
 	font-size: 27px;
 }
