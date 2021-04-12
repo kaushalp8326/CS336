@@ -9,7 +9,8 @@
 		<title>Sell an Item</title>
 		<script>
 		function setMinDate() {
-			var present = new Date();
+			//Make the minimum end date at least one minute from the present
+			var present = new Date(new Date() + 60000);
 			var dd = present.getDate();
 			if (dd < 10) {
 				dd = "0" + dd;
@@ -23,15 +24,12 @@
 			if (hh < 10) {
 				hh = "0" + hh;
 			}
-			//Make the minimum end date at least one minute from the present
-			var mm = present.getMinutes()+1;
-			if(mm >= 60){
-				mm = mm - 60;
-			}
+			var mm = present.getMinutes();
 			if (mm < 10) {
 				mm = "0" + mm;
 			}
 			var minimum = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
+			System.out.println(minimum);
 			document.getElementById("endDate").min = minimum;
 		}
 		</script>
