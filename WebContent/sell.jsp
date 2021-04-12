@@ -10,8 +10,6 @@
 		<script>
 		function setMinDate() {
 			var present = new Date();
-			//Make the minimum end date at least one day from the present
-			present.setDate(present.getDate() + 1);
 			var dd = present.getDate();
 			if (dd < 10) {
 				dd = "0" + dd;
@@ -25,7 +23,11 @@
 			if (hh < 10) {
 				hh = "0" + hh;
 			}
-			var mm = present.getMinutes();
+			//Make the minimum end date at least one minute from the present
+			var mm = present.getMinutes()+1;
+			if(mm >= 60){
+				mm = mm - 60;
+			}
 			if (mm < 10) {
 				mm = "0" + mm;
 			}
