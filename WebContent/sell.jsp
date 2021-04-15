@@ -10,7 +10,9 @@
 		<script>
 		function setMinDate() {
 			//Make the minimum end date at least one minute from the present
-			var present = new Date(new Date() + 60000);
+			var present = new Date();
+			present.setTime(present.getTime() + 60000);
+			console.log("p: "+present);
 			var dd = present.getDate();
 			if (dd < 10) {
 				dd = "0" + dd;
@@ -29,7 +31,7 @@
 				mm = "0" + mm;
 			}
 			var minimum = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
-			System.out.println(minimum);
+			console.log("m: "+minimum);
 			document.getElementById("endDate").min = minimum;
 		}
 		</script>
@@ -170,7 +172,7 @@
 				<input type="number" step="0.01" min="0" name="bidIncrement" id="bidIncrement" required /> <br> <br>
 				<label for="endDate">Auction End Date:</label>
 				<input type="datetime-local" name="endDate" id="endDate" onclick="setMinDate();" required /> <br> <br>
-				<input type="submit" value="Post Item For Sale" />
+				<input type="submit" onclick="setMinDate();" value="Post Item For Sale" />
 			</form>
 			<br>
 			<form action="home.jsp">

@@ -23,12 +23,12 @@
 				<button type="submit">Sell an item</button>
 			</form>
 			<br>
-			<form action="logout.jsp">
-				<button type="submit">Log Out</button>
+			<form action="viewListing.jsp">
+				<button type="submit">View Listings</button>
 			</form>
 			<br>
-			<form action="viewListing.jsp">
-				<button type="submit">View Listing</button>
+			<form action="logout.jsp">
+				<button type="submit">Log Out</button>
 			</form>
 			<br>
 			<table id="alertsTable">
