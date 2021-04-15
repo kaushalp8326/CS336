@@ -12,7 +12,6 @@
 			//Make the minimum end date at least one minute from the present
 			var present = new Date();
 			present.setTime(present.getTime() + 60000);
-			console.log("p: "+present);
 			var dd = present.getDate();
 			if (dd < 10) {
 				dd = "0" + dd;
@@ -31,7 +30,6 @@
 				mm = "0" + mm;
 			}
 			var minimum = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
-			console.log("m: "+minimum);
 			document.getElementById("endDate").min = minimum;
 		}
 		</script>
