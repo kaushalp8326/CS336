@@ -8,6 +8,7 @@
 	<%@ include file = "header.jsp" %>
 	<head>
 		<title>Home</title>
+		<meta http-equiv="refresh" content="30">
 	</head>
 	<% if ((session.getAttribute("user") == null)) { %>
 		<body>
