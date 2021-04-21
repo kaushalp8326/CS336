@@ -2,12 +2,19 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<% if ((session.getAttribute("user") == null)) { %>
+		<body>
+			<h1>Home</h1>
+			You are not logged in. <br>
+			Please <a href="login.jsp">log in</a>.
+		</body>
+	<% } else { %>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Admin</title>
 	</head>
 	<body>
-		<h1>Welcome Admin!</h1>
+		<h1>Welcome </h1>
 		<h2>Create new Customer Rep. Accounts here:</h2>
 		<form action="createAccount.jsp" method="POST">
 			<label for="newUsername">New Username:</label>
@@ -18,16 +25,27 @@
 			<input type="password" name="confirmPassword" id="confirmPassword" required/> <br><br>
 			<input type="submit" value="Register New Customer Representative"/>
 		</form>
-		
-		<h3>Generate Sales Reports:</h3>
-		<form action="generateSalesReports.jsp" method="GET">
-			<input type="checkbox" name="totalEarnings"/> Total Earnings
-         	<input type="checkbox" name="earningsPerItem"/> Earnings per Item
-         	<input type="checkbox" name="earningsPerItemType"/> Earnings per Item Type
-         	<input type="checkbox" name="earningsPerEndUser"/> Earnings per End User
-         	<input type="checkbox" name="bestSellingItems"/> Best Selling Items
-         	<input type="checkbox" name="bestBuyers"/> Best Buyers
-         	<input type="submit" value="Generate Sales" />
+		<br>
+		<form action="logout.jsp"> 
+			<input type="submit" value="logout"/>
 		</form>
+		
+		<h3>Sales Reports:</h3>
+		<h4>Total Earnings:</h4>
+		<%
+		
+		%>
+		<h4>Earning per Item:</h4>
+		
+		<h4>Earnings per Item Type:</h4>
+		
+		<h4>Earnings per User:</h4>
+		
+		<h4>Best Selling Items:</h4>
+		
+		<h4>Best Buyers:</h4>
+		
+		<% }%>
+		
 	</body>
 </html> 

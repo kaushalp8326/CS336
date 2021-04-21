@@ -2,6 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
+	<% if ((session.getAttribute("user") == null)) { %>
+		<body>
+			<h1>Home</h1>
+			You are not logged in. <br>
+			Please <a href="login.jsp">log in</a>.
+		</body>
+	<% } else { %>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Customer Representative</title>
@@ -28,5 +36,11 @@
 		<form> 
 			<button type="submit">Remove an Auction</button>
 		</form>
+		<br><br>
+		<form action="logout.jsp"> 
+			<input type="submit" value="logout"/>
+		</form>
 	</body>
+	
+	<% } %>
 </html>
