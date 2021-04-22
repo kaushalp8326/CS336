@@ -2,7 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<% if ((session.getAttribute("user") == null)) { %>
+<%	if (session.getAttribute("type") == null) { %>
+		<body>
+			<h1>Home</h1>
+			You are not logged in. <br>
+			Please <a href="login.jsp">log in</a>.
+		</body>
+	<% } else if (!session.getAttribute("type").equals("admin")) { %>
 		<body>
 			<h1>Home</h1>
 			You are not logged in. <br>
@@ -36,16 +42,27 @@
 		
 		%>
 		<h4>Earning per Item:</h4>
+		<%
 		
+		%>
 		<h4>Earnings per Item Type:</h4>
+		<%
 		
+		%>
 		<h4>Earnings per User:</h4>
+		<%
 		
+		%>
 		<h4>Best Selling Items:</h4>
+		<%
 		
+		%>
 		<h4>Best Buyers:</h4>
+		<%
 		
-		<% }%>
+		%>
+		
+		<% } %>
 		
 	</body>
 </html> 
