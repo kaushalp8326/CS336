@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+	<%@ include file = "header.jsp" %>
 <%	if (session.getAttribute("type") == null) { %>
 		<body>
 			<h1>Home</h1>
