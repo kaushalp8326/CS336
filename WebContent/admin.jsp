@@ -152,34 +152,34 @@
 			</thead>
 		<%
 			Statement st4 = con.createStatement();
-			ResultSet rs4 = st4.executeQuery("select count(itemName) numItems, itemName from (select * from clothingAuctions where winner is not null or winner != 'reserve') t group by itemName order by numItems desc;");
+			ResultSet rs4 = st4.executeQuery("select count(itemName) numItems, itemName from (select * from clothingAuctions where winner is not null or winner != 'reserve') t group by itemName order by numItems desc limit 3");
 			int i = 1;
 			while (rs4.next()) {
-				if (i == 4) {
-					break;
-				}
 				out.println("<tr><td>#" + i + " best selling item: " + rs4.getString("itemName") + "</td></tr>");
 				i++;
 			}
 		%>
 		</table>
 		<br><br>
-		<h4>Best Buyer:</h4>
+		
+		<table> 
+			<thead>
+				<tr><th>Best Buyer:</th></tr>
+			</thead>
 		<%
-			/*
 			Statement st5 = con.createStatement();
-			ResultSet rs5 = st5.executeQuery("select count(itemName) numItems, itemName from (select * from clothingAuctions where winner is not null or winner != 'reserve') t group by itemName order by numItems desc;");
+			ResultSet rs5 = st5.executeQuery("select bidder, count(*) from bid group by bidder order by count(*) desc limit 3");
 			int j = 1;
 			while (rs5.next()) {
-				if (j == 4) {
-					break;
-				}
-				out.println("#" + j + " best buyer " + rs4.getString("itemName"));
+				out.println("<tr><td>#" + j + " best buyer: " + rs5.getString("bidder") + "</td></tr>");
+				j++;
 			}
-			*/
 		%>
-		
-		<% } %>
+		</table>
+		<br><br>
+		 
+		 
+		 <% } %>
 		
 	</body>
 </html> 
