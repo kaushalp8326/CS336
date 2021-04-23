@@ -33,7 +33,8 @@ if ((userid == null)) {
 <body>
 	<h2>
 		Bid history for
-		<%=pid%>! <br>Back to <a href="viewListing.jsp">listings</a>.
+		<%=pid%>!
+		<br>Back to <a href="viewListing.jsp">listings</a>.
 	</h2>
 	<%
 	if (currentBids.size() == 0) {
@@ -72,9 +73,9 @@ if ((userid == null)) {
 		for (HistoryDetails record : currentBids) {
 		%>
 		<tr>
-			<td><%=record.getPID()%></td>
-			<td><%=record.getItemType()%></td>
+			<td><a href="viewUserHistory.jsp?&param=<%=record.getBidder()%>"><%=record.getBidder()%></a></td>
 			<td><%=record.getItemName()%></td>
+			<td><%=record.getItemType()%></td>
 			<td><%=record.getBidAmount()%></td>
 			<td><%=record.getBidDate()%></td>
 		</tr>
