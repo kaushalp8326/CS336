@@ -88,7 +88,7 @@ if ((userid == null)) {
 		for (ListingDetails list : currentList) {
 		%>
 		<tr>
-			<td><%=list.getID()%></td>
+			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
 			<td><%=list.getType()%></td>
 			<td><%=list.getName()%></td>
 			<td><%=list.getPrice()%></td>
