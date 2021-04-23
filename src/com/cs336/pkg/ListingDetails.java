@@ -62,5 +62,4 @@ public class ListingDetails {
 		return "ListingDetails [id=" + id + ", type=" + type + ", itemName=" + itemName + ", price=" + price
 				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
-
 }

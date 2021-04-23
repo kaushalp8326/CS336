@@ -13,8 +13,30 @@
 <title>Current Listings</title>
 </head>
 <%
+String def = "select * from auctionView";
+String query;
+String sort;
+String search = request.getParameter("search");
+if (search == "" || search == null) {
+	search = "";
+} else {
+	search = " where itemName like '%" + search + "%'";
+}
+sort = request.getParameter("type");
+if (sort == null) {
+	sort = request.getParameter("price");
+}
+if (sort == null) {
+	sort = request.getParameter("name");
+}
+if (sort == null) {
+	query = def + search;
+} else {
+	query = def + " " + sort;
+}
+System.out.println(query);
 AuctionListings auctions = new AuctionListings();
-List<ListingDetails> currentList = auctions.getListings();
+List<ListingDetails> currentList = auctions.getListings(query);
 String userid = (String) session.getAttribute("user");
 if ((userid == null)) {
 %>
@@ -34,6 +56,42 @@ if ((userid == null)) {
 	</h2>
 	<table>
 		<tr>
+			<td>
+				<form action="viewListing.jsp">
+					<h3>Look up an item name:</h3>
+					<input type="text" name="search"> <input type="submit"
+						value="Search" />
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<h3>Sort by:</h3>
+					<input type="hidden" name="type" value="order by itemType">
+					<button type="submit" value="type">Type</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="price" value="order by bidAmount">
+					<button type="submit" value="price">Price</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="name" value="order by itemName">
+					<button type="submit" value="name">Name</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="reset" value="">
+					<button type="submit" value="reset">Reset</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
 			<td>ProductID</td>
 			<td>Type</td>
 			<td>Name</td>
@@ -45,7 +103,7 @@ if ((userid == null)) {
 		for (ListingDetails list : currentList) {
 		%>
 		<tr>
-			<td><%=list.getID()%></td>
+			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
 			<td><%=list.getType()%></td>
 			<td><%=list.getName()%></td>
 			<td><%=list.getPrice()%></td>

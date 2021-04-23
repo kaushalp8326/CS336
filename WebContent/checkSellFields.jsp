@@ -5,23 +5,35 @@
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%
-	//PID will be generated later
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con = DriverManager.getConnection(dbURL, dbUser, dbPass);
+	String username = (String) session.getAttribute("user");
+	
+	//Find PID
+	int id;
+	String searchMaxPIDString = "select max(productID) from clothingAuctions";
+	PreparedStatement searchMaxPID = con.prepareStatement(searchMaxPIDString);
+	ResultSet r = searchMaxPID.executeQuery();
+	if (r.next()) {
+		//PID = max + 1
+		id = r.getInt(1) + 1;
+	}else{
+		//start from PID = 1
+		id = 1;
+	}
+	
 	String itemType = request.getParameter("itemType");
 	String itemName = request.getParameter("itemName");   
 	Double initialPrice = Double.parseDouble(request.getParameter("initialPrice"));
 	Double minimumPrice;
 	if(request.getParameter("minimumPrice")==null || request.getParameter("minimumPrice").isEmpty()){
-		minimumPrice = 0.0;
+		minimumPrice = initialPrice;
 	}else{
 		minimumPrice = Double.parseDouble(request.getParameter("minimumPrice"));
 	}
 	Double bidIncrement = Double.parseDouble(request.getParameter("bidIncrement"));
 	LocalDateTime startDate = LocalDateTime.now();
 	LocalDateTime endDate = LocalDateTime.parse(request.getParameter("endDate"));
-	
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con = DriverManager.getConnection(dbURL, dbUser, dbPass);
-	String username = (String) session.getAttribute("user");
 	
 	String insertSellString = "insert into sell (seller, PID) values (?, ?)";
 	String searchClothingAuctionsString = "select * from clothingAuctions where productID = ?";
@@ -30,15 +42,6 @@
 	PreparedStatement insertSell = con.prepareStatement(insertSellString);
 	PreparedStatement searchClothingAuctions = con.prepareStatement(searchClothingAuctionsString);
 	PreparedStatement insertClothingAuctions = con.prepareStatement(insertClothingAuctionsString);
-	
-	//generate unique product id from 0 to 9999
-	int id;
-	ResultSet rs;
-	do{
-		id = (int) ((Math.random() * (9999 - 0)) + 0);
-		searchClothingAuctions.setString(1, String.valueOf(id));
-		rs = searchClothingAuctions.executeQuery();
-	} while(rs.next());
 	
 	//add item to auctions table
 	/*insert into clothingAuctions (productID, itemType, itemName, initialPrice, minimumPrice,
