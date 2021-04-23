@@ -17,21 +17,21 @@ String def = "select * from auctionView";
 String query;
 String sort;
 String search = request.getParameter("search");
-if (search == "" || search  == null){
+if (search == "" || search == null) {
 	search = "";
-}else{
+} else {
 	search = " where itemName like '%" + search + "%'";
 }
 sort = request.getParameter("type");
-if (sort == null){
+if (sort == null) {
 	sort = request.getParameter("price");
 }
-if (sort == null){
+if (sort == null) {
 	sort = request.getParameter("name");
 }
-if (sort == null){
+if (sort == null) {
 	query = def + search;
-}else{
+} else {
 	query = def + " " + sort;
 }
 System.out.println(query);
@@ -54,27 +54,42 @@ if ((userid == null)) {
 		Welcome
 		<%=userid%>, here are today's listings!
 	</h2>
-	<form action="viewListing.jsp">
-		<h2>Look up an item name:</h2>
-		<input type="text" name="search"> <input type="submit" value="Search" />
-	</form>
-	<form action="viewListing.jsp">
-		<h2>Sort by:</h2>
-		<input type="hidden" name="type" value="order by itemType">
-		<button type="submit" value="type">Type</button>
-	</form>
-	<form action="viewListing.jsp">
-		<input type="hidden" name="price" value="order by bidAmount">
-		<button type="submit" value="price">Price</button>
-	</form>
-	<form action="viewListing.jsp">
-		<input type="hidden" name="name" value="order by itemName">
-		<button type="submit" value="name">Name</button>
-	</form>
-	<form action="viewListing.jsp">
-		<input type="hidden" name="reset" value="">
-		<button type="submit" value="reset">Reset</button>
-	</form>
+	<table>
+		<tr>
+			<td>
+				<form action="viewListing.jsp">
+					<h3>Look up an item name:</h3>
+					<input type="text" name="search"> <input type="submit"
+						value="Search" />
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<h3>Sort by:</h3>
+					<input type="hidden" name="type" value="order by itemType">
+					<button type="submit" value="type">Type</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="price" value="order by bidAmount">
+					<button type="submit" value="price">Price</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="name" value="order by itemName">
+					<button type="submit" value="name">Name</button>
+				</form>
+			</td>
+			<td>
+				<form action="viewListing.jsp">
+					<input type="hidden" name="reset" value="">
+					<button type="submit" value="reset">Reset</button>
+				</form>
+			</td>
+		</tr>
+	</table>
 	<table>
 		<tr>
 			<td>ProductID</td>

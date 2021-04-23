@@ -33,7 +33,7 @@ if ((userid == null)) {
 <body>
 	<h2>
 		Bid history for
-		<%=pid%>!
+		<%=pid%>! <br>Back to <a href="viewListing.jsp">listings</a>.
 	</h2>
 	<%
 	if (currentBids.size() == 0) {
