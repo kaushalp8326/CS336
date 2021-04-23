@@ -13,8 +13,30 @@
 <title>Current Listings</title>
 </head>
 <%
+String def = "select * from auctionView";
+String query;
+String sort;
+String search = request.getParameter("search");
+if (search == "" || search  == null){
+	search = "";
+}else{
+	search = " where itemName like '%" + search + "%'";
+}
+sort = request.getParameter("type");
+if (sort == null){
+	sort = request.getParameter("price");
+}
+if (sort == null){
+	sort = request.getParameter("name");
+}
+if (sort == null){
+	query = def + search;
+}else{
+	query = def + " " + sort;
+}
+System.out.println(query);
 AuctionListings auctions = new AuctionListings();
-List<ListingDetails> currentList = auctions.getListings();
+List<ListingDetails> currentList = auctions.getListings(query);
 String userid = (String) session.getAttribute("user");
 if ((userid == null)) {
 %>
@@ -32,6 +54,27 @@ if ((userid == null)) {
 		Welcome
 		<%=userid%>, here are today's listings!
 	</h2>
+	<form action="viewListing.jsp">
+		<h2>Look up an item name:</h2>
+		<input type="text" name="search"> <input type="submit" value="Search" />
+	</form>
+	<form action="viewListing.jsp">
+		<h2>Sort by:</h2>
+		<input type="hidden" name="type" value="order by itemType">
+		<button type="submit" value="type">Type</button>
+	</form>
+	<form action="viewListing.jsp">
+		<input type="hidden" name="price" value="order by bidAmount">
+		<button type="submit" value="price">Price</button>
+	</form>
+	<form action="viewListing.jsp">
+		<input type="hidden" name="name" value="order by itemName">
+		<button type="submit" value="name">Name</button>
+	</form>
+	<form action="viewListing.jsp">
+		<input type="hidden" name="reset" value="">
+		<button type="submit" value="reset">Reset</button>
+	</form>
 	<table>
 		<tr>
 			<td>ProductID</td>
