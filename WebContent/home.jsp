@@ -50,10 +50,11 @@
 						//Auction has ended
 						String id = rs.getString("productID");
 						String reserve = rs.getString("minimumPrice");
-						String searchBidString = "select bidder, bidAmount from bid where bidAmount = (select max(bidAmount) from bid where PID = ? and bidAmount >= ?)";
+						String searchBidString = "select bidder, bidAmount from bid where bidAmount = (select max(bidAmount) from bid where PID = ? and bidAmount >= ?) and PID = ?";
 						PreparedStatement searchBid = con.prepareStatement(searchBidString);
 						searchBid.setString(1, id);
 						searchBid.setString(2, reserve);
+						searchBid.setString(3, id);
 						ResultSet bidWinner = searchBid.executeQuery();
 						if(bidWinner.next()){
 							//there is a winning bid
