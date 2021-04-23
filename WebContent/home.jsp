@@ -16,7 +16,11 @@
 			You are not logged in. <br>
 			Please <a href="login.jsp">log in</a>.
 		</body>
-	<% } else { %>
+	<% } else if (session.getAttribute("type").equals("admin")) { %>
+		<% response.sendRedirect("admin.jsp"); %>
+	<% } else if (session.getAttribute("type").equals("rep")) { %>
+		<% response.sendRedirect("cusRep.jsp"); %>
+	<% } else {	%>
 		<body>
 			<h1>Home</h1>
 			Welcome <%=session.getAttribute("user")%>! <br><br> <% //this will display the username that is stored in the session. %>
