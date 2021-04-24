@@ -107,7 +107,7 @@ if ((userid == null)) {
 			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
 			<td><%=list.getType()%></td>
 			<td><%=list.getName()%></td>
-			<td><%=list.getPrice()%></td>
+			<td>$<%=list.getPrice()%></td>
 			<td><%=list.getStartDate()%></td>
 			<td><%=list.getEndDate()%></td>
 		</tr>
