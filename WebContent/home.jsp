@@ -112,24 +112,20 @@
 						<th>Item Name</th>
 					</tr>
 				</thead>
-					<%
-					for (Wishlist item : wishlist) {
-					%>
-					<tr>
-						<td><%=item.getProductName()%></td>
-						<%
-						for (ListingDetails list : currentList){
-							if (list.getName().contains(item.getProductName()) || item.getProductName().contains(list.getType())){
-							%>
-								<td>[Item Available] <a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice()%>.</a></td>
-							<%
-							}
+				<%
+				for (Wishlist item : wishlist) {
+					for (ListingDetails list : currentList) {
+						if (list.getName().contains(item.getProductName()) || item.getProductName().contains(list.getType())) {
+							out.println("<tr>");
+							out.println("<td>" + item.getProductName() + "</td>");
+							out.println("<td>[Item Available] <a href='viewItemHistory.jsp?&param=" + list.getID() + "'>" + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice() + ".</a></td>");
+							out.println("</tr>");
 						}
-						%>
-					</tr>
+					}
+				}
+				%>
 			</table>
 		</body>
 	<% }
-	}
-	}%>
+	} %>
 </html>
