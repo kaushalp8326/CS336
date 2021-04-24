@@ -103,11 +103,11 @@
 					<h3>You do not have any items in your wishlist</h3>
 				<%}else{%>
 			<table id="wishlist">
-				<thread id="itemList">
+				<thead id="itemList">
 					<tr>
 						<th>Item Name</th>
 					</tr>
-				</thread>
+				</thead>
 					<%
 					for (Wishlist item : wishlist) {
 					%>
