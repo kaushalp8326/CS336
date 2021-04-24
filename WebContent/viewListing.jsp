@@ -54,6 +54,7 @@ if ((userid == null)) {
 		Welcome
 		<%=userid%>, here are today's listings!
 	</h2>
+	Interested in an item but it's not listed? <a href='wishlist.jsp'>Add it to your wishlist</a>!
 	<table>
 		<tr>
 			<td>

@@ -3,6 +3,10 @@
 <%@ include file="Database.jsp" %>
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="com.cs336.pkg.Wishlist"%>
+<%@ page import="com.cs336.pkg.GetAlert"%>
+<%@ page import="com.cs336.pkg.AuctionListings"%>
+<%@ page import="com.cs336.pkg.ListingDetails"%>
 <!DOCTYPE html>
 <html>
 	<%@ include file = "header.jsp" %>
@@ -16,11 +20,7 @@
 			You are not logged in. <br>
 			Please <a href="login.jsp">log in</a>.
 		</body>
-	<% } else if (session.getAttribute("type").equals("admin")) { %>
-		<% response.sendRedirect("admin.jsp"); %>
-	<% } else if (session.getAttribute("type").equals("rep")) { %>
-		<% response.sendRedirect("cusRep.jsp"); %>
-	<% } else {	%>
+	<% } else { %>
 		<body>
 			<h1>Home</h1>
 			Welcome <%=session.getAttribute("user")%>! <br><br> <% //this will display the username that is stored in the session. %>
@@ -89,6 +89,41 @@
 				}
 				%>
 			</table>
+				<%
+				String username = (String) session.getAttribute("user");
+				String def = "select * from setAlert where username = '" + username + "'";
+				String op = "select * from auctionView";
+				GetAlert alert = new GetAlert();
+				List<Wishlist> wishlist = alert.getWishlist(def);				
+				AuctionListings auctions = new AuctionListings();
+				List<ListingDetails> currentList = auctions.getListings(op);
+				%>
+				<h2>Wishlist</h2>
+				<%if (wishlist.size() == 0){%>
+					<h3>You do not have any items in your wishlist</h3>
+				<%}else{%>
+			<table id="wishlist">
+					<tr>
+						<td>Item Name</td>
+					</tr>
+					<%
+					for (Wishlist item : wishlist) {
+					%>
+					<tr>
+						<td><%=item.getProductName()%></td>
+						<%
+						for (ListingDetails list : currentList){
+							if (list.getName().contains(item.getProductName())){
+							%>
+								<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%="Item Available! " + list.getID() + " " + list.getName()%></a></td>
+							<%
+							}
+						}
+						%>
+					</tr>
+			</table>
 		</body>
-	<% } %>
+	<% }
+	}
+	}%>
 </html>
