@@ -124,11 +124,11 @@
 							}else{
 								out.println("<td></td>");
 							}
-							//out.println("<td>" + item.getProductName() + "</td>");
 							out.println("<td>[Item Available] <a href='viewItemHistory.jsp?&param=" + list.getID() + "'>" + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice() + ".</a></td>");
 							out.println("</tr>");
 						}
 					}
+					written = 0;
 				}
 				%>
 			</table>
