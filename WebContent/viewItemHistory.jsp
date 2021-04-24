@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.cs336.pkg.AuctionHistory"%>
 <%@ page import="com.cs336.pkg.HistoryDetails"%>
+<%@ page import="com.cs336.pkg.AuctionListings"%>
+<%@ page import="com.cs336.pkg.ListingDetails"%>
 <%@ page import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -15,9 +17,12 @@
 <%
 String pid = request.getParameter("param");
 String def = "select * from bidHistory where PID = '" + pid + "'";
+String op = "select * from auctionView where ProductID = '" + pid + "'";
 System.out.println(def);
 AuctionHistory records = new AuctionHistory();
 List<HistoryDetails> currentBids = records.getHistory(def);
+AuctionListings date = new AuctionListings();
+List<ListingDetails> bidDates = date.getListings(op);
 String userid = (String) session.getAttribute("user");
 if ((userid == null)) {
 %>
@@ -36,6 +41,8 @@ if ((userid == null)) {
 		<%=pid%>!
 		<br>Back to <a href="viewListing.jsp">listings</a>.
 	</h2>
+	<h3>Start Date: <%=bidDates.get(0).getStartDate()%></h3>
+	<h3>End Date: <%=bidDates.get(0).getEndDate()%></h3>
 	<%
 	if (currentBids.size() == 0) {
 	%>

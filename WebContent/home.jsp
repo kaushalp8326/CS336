@@ -115,7 +115,7 @@
 						for (ListingDetails list : currentList){
 							if (list.getName().contains(item.getProductName())){
 							%>
-								<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%="Item Available! " + list.getID() + " " + list.getName()%></a></td>
+								<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=" [Item Available!] " + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice()%>.</a></td>
 							<%
 							}
 						}
