@@ -17,7 +17,7 @@
 <%
 String pid = request.getParameter("param");
 String def = "select * from bidHistory where PID = '" + pid + "'";
-String op = "select * from auctionView where ProductID = '" + pid + "'";
+String op = "select * from allAuctions where ProductID = '" + pid + "'";
 System.out.println(def);
 AuctionHistory records = new AuctionHistory();
 List<HistoryDetails> currentBids = records.getHistory(def);
@@ -95,10 +95,43 @@ if ((userid == null)) {
 		</tr>
 		<%
 		}
+		}
+		%>
+	</table>
+	<h2>Similar item you might be interested in! (Past 30 days)</h2>
+	<%
+	AuctionListings test = new AuctionListings();
+	List<ListingDetails> testList = date.getListings("select * from auctionView a WHERE YEAR(a.startDate) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(a.startDate) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)");
+	%>
+	<table>
+		<tr>
+			<td>ProductID</td>
+			<td>Type</td>
+			<td>Name</td>
+			<td>Price</td>
+			<td>Start Date</td>
+			<td>End Date</td>
+		</tr>
+		<%
+		for (ListingDetails list : testList) {
+			System.out.println("list: " + list.getType());
+			System.out.println("item: " + bidDates.get(0).getType());
+			if (!list.getID().equals(pid) && list.getType().equals(bidDates.get(0).getType())) {
+		%>
+		<tr>
+			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
+			<td><%=list.getType()%></td>
+			<td><%=list.getName()%></td>
+			<td>$<%=list.getPrice()%></td>
+			<td><%=list.getStartDate()%></td>
+			<td><%=list.getEndDate()%></td>
+		</tr>
+		<%
+		}
+		}
 		%>
 	</table>
 	<%
-	}
 	}
 	%>
 </body>
