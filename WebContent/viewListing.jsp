@@ -20,7 +20,7 @@ String search = request.getParameter("search");
 if (search == "" || search == null) {
 	search = "";
 } else {
-	search = " where itemName like '%" + search + "%'";
+	search = " where itemName like '%" + search + "%' OR itemType like '%" + search + "%'";
 }
 sort = request.getParameter("type");
 if (sort == null) {
