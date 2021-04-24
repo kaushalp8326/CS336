@@ -32,6 +32,10 @@
 				<button type="submit">View Listings</button>
 			</form>
 			<br>
+			<form action="questions.jsp">
+				<button type="submit">View Questions</button>
+			</form>
+			<br>
 			<form action="logout.jsp">
 				<button type="submit">Log Out</button>
 			</form>
