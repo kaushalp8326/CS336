@@ -58,15 +58,19 @@ if ((userid == null)) {
 	<table>
 		<tr>
 			<td>
+				<h3>Look up an item name:</h3>
+			</td>
+			<td>
 				<form action="viewListing.jsp">
-					<h3>Look up an item name:</h3>
 					<input type="text" name="search"> <input type="submit"
 						value="Search" />
 				</form>
 			</td>
 			<td>
+				<h3>Sort by:</h3>
+			</td>
+			<td>
 				<form action="viewListing.jsp">
-					<h3>Sort by:</h3>
 					<input type="hidden" name="type" value="order by itemType">
 					<button type="submit" value="type">Type</button>
 				</form>
