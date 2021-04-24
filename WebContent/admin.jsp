@@ -136,7 +136,7 @@
 			
 			<%
 				Statement st3 = con.createStatement();
-				ResultSet rs3 = st3.executeQuery("select u.username, max(b.bidAmount) earnings from users u, sell s, bid b, (select * from clothingAuctions where winner != null or winner != 'reserve') a where u.type = 'user' and u.username = s.seller and s.PID = a.productID and a.productID = b.PID group by a.productID");     
+				ResultSet rs3 = st3.executeQuery("select u.username, sum(b.bidAmount) earnings from users u, sell s, bid b, (select * from clothingAuctions where winner != null or winner != 'reserve') a where u.type = 'user' and u.username = s.seller and s.PID = a.productID and a.productID = b.PID group by u.username");     
 				while (rs3.next()) {
 					String username = rs3.getString("username");
 					double earnings = rs3.getDouble("earnings");
