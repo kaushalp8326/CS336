@@ -35,6 +35,11 @@
 	margin: 0 5vw;
 }
 
+#headerLi4 {
+	list-style-type: none;
+	margin: 0 5vw;
+}
+
 #headerLiLogout {
 	list-style-type: none;
 	margin: 0 5vw;
@@ -51,6 +56,11 @@
 }
 
 #headerA3 {
+	text-decoration: none;
+	font-size: 27px;
+}
+
+#headerA4 {
 	text-decoration: none;
 	font-size: 27px;
 }

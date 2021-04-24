@@ -28,6 +28,9 @@
 					<li id="headerLi3">
 						<a id="headerA3" href="viewListing.jsp">View Listings</a>
 					</li>
+					<li id="headerLi4">
+						<a id="headerA4" href="questions.jsp">View Questions</a>
+					</li>
 					<li id="headerLiLogout">
 						<a id="headerALogout" href="logout.jsp">Log Out</a>
 					</li>
