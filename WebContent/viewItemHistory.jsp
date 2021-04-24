@@ -101,7 +101,15 @@ if ((userid == null)) {
 	<h2>Similar item you might be interested in! (Past 30 days)</h2>
 	<%
 	AuctionListings test = new AuctionListings();
-	List<ListingDetails> testList = date.getListings("select * from auctionView a WHERE YEAR(a.startDate) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(a.startDate) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)");
+	List<ListingDetails> testList = date.getListings("select * from auctionView a WHERE a.ProductID <> '" + pid
+			+ "' AND a.itemType = '" + bidDates.get(0).getType()
+			+ "' AND EXTRACT(YEAR_MONTH FROM a.startDate) > EXTRACT(YEAR_MONTH FROM a.startDate - INTERVAL 1 MONTH)");
+	if (testList.size() == 0) {
+	%>
+	<h2>Oops, there aren't any similar items placed on auction at this
+		moment...</h2>
+	<%
+	} else {
 	%>
 	<table>
 		<tr>
@@ -114,9 +122,6 @@ if ((userid == null)) {
 		</tr>
 		<%
 		for (ListingDetails list : testList) {
-			System.out.println("list: " + list.getType());
-			System.out.println("item: " + bidDates.get(0).getType());
-			if (!list.getID().equals(pid) && list.getType().equals(bidDates.get(0).getType())) {
 		%>
 		<tr>
 			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
@@ -128,10 +133,10 @@ if ((userid == null)) {
 		</tr>
 		<%
 		}
-		}
 		%>
 	</table>
 	<%
+	}
 	}
 	%>
 </body>
