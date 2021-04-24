@@ -103,9 +103,11 @@
 					<h3>You do not have any items in your wishlist</h3>
 				<%}else{%>
 			<table id="wishlist">
+				<thread id="itemList">
 					<tr>
-						<td>Item Name</td>
+						<th>Item Name</th>
 					</tr>
+				</thread>
 					<%
 					for (Wishlist item : wishlist) {
 					%>
@@ -113,9 +115,9 @@
 						<td><%=item.getProductName()%></td>
 						<%
 						for (ListingDetails list : currentList){
-							if (list.getName().contains(item.getProductName())){
+							if (list.getName().contains(item.getProductName()) || item.getProductName().contains(list.getType())){
 							%>
-								<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=" [Item Available!] " + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice()%>.</a></td>
+								<td>[Item Available] <a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice()%>.</a></td>
 							<%
 							}
 						}
