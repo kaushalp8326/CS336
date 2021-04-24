@@ -81,6 +81,10 @@
 			<button type="submit">Search</button>
 		</form>
 		<br><br>
+		<form action="questions.jsp">
+			<button type="submit">Reset</button>
+		</form>
+		<br><br>
 		
 		<% 
 		while (rs.next()) {
