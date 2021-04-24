@@ -113,11 +113,18 @@
 					</tr>
 				</thead>
 				<%
+				int written = 0;
 				for (Wishlist item : wishlist) {
 					for (ListingDetails list : currentList) {
 						if (list.getName().contains(item.getProductName()) || item.getProductName().contains(list.getType())) {
 							out.println("<tr>");
-							out.println("<td>" + item.getProductName() + "</td>");
+							if(written == 0){
+								out.println("<td>" + item.getProductName() + "</td>");
+								written = 1;
+							}else{
+								out.println("<td></td>");
+							}
+							//out.println("<td>" + item.getProductName() + "</td>");
 							out.println("<td>[Item Available] <a href='viewItemHistory.jsp?&param=" + list.getID() + "'>" + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice() + ".</a></td>");
 							out.println("</tr>");
 						}
