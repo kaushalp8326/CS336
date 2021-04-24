@@ -73,7 +73,7 @@
 							//check if this user is the one who won the auction
 							if(bidWinner.getString("bidder").equals(session.getAttribute("user"))){
 								//output alert
-								out.println("<tr><td>You have won the bid for " + rs.getString("itemName") + " (item #" + id + ") for $" + bidWinner.getString("bidAmount") + ".</td></tr>");
+								out.println("<tr><td>You have won the bid for " + rs.getString("itemName") + " (<a href='viewItemHistory.jsp?&param=" + id + "'>item # " + id + "</a>) for $" + bidWinner.getString("bidAmount") + ".</td></tr>");
 							}
 						}else{
 							//there is no winning bid
