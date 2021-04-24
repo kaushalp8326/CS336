@@ -131,7 +131,7 @@
 						}
 					}
 					if(found == 0){
-						out.println("<tr><td>" + item.getProductName() + "</td></tr>");
+						out.println("<tr><td>" + item.getProductName() + "</td><td>[Item Not Available]</td></tr>");
 					}
 					written = 0;
 				}
