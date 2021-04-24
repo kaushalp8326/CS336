@@ -14,7 +14,13 @@
 				</li>
 				<% if(session.getAttribute("user")!=null){ %>
 					<li id="headerLi1">
-						<a id="headerA1" href="home.jsp">Home</a>
+						<% if(session.getAttribute("type").equals("user")){ %>
+							<a id="headerA1" href="home.jsp">Home</a>
+						<% } else if (session.getAttribute("type").equals("admin")) { %>
+							<a id="headerA1" href="admin.jsp">Home</a>
+						<% } else { %>
+							<a id="headerA1" href="cusRep.jsp">Home</a>
+						<% } %>
 					</li>
 					<li id="headerLi2">
 						<a id="headerA2" href="sell.jsp">Sell</a>

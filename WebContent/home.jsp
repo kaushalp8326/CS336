@@ -3,6 +3,10 @@
 <%@ include file="Database.jsp" %>
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="com.cs336.pkg.Wishlist"%>
+<%@ page import="com.cs336.pkg.GetAlert"%>
+<%@ page import="com.cs336.pkg.AuctionListings"%>
+<%@ page import="com.cs336.pkg.ListingDetails"%>
 <!DOCTYPE html>
 <html>
 	<%@ include file = "header.jsp" %>
@@ -50,10 +54,11 @@
 						//Auction has ended
 						String id = rs.getString("productID");
 						String reserve = rs.getString("minimumPrice");
-						String searchBidString = "select bidder, bidAmount from bid where bidAmount = (select max(bidAmount) from bid where PID = ? and bidAmount >= ?)";
+						String searchBidString = "select bidder, bidAmount from bid where bidAmount = (select max(bidAmount) from bid where PID = ? and bidAmount >= ?) and PID = ?";
 						PreparedStatement searchBid = con.prepareStatement(searchBidString);
 						searchBid.setString(1, id);
 						searchBid.setString(2, reserve);
+						searchBid.setString(3, id);
 						ResultSet bidWinner = searchBid.executeQuery();
 						if(bidWinner.next()){
 							//there is a winning bid
@@ -84,6 +89,41 @@
 				}
 				%>
 			</table>
+				<%
+				String username = (String) session.getAttribute("user");
+				String def = "select * from setAlert where username = '" + username + "'";
+				String op = "select * from auctionView";
+				GetAlert alert = new GetAlert();
+				List<Wishlist> wishlist = alert.getWishlist(def);				
+				AuctionListings auctions = new AuctionListings();
+				List<ListingDetails> currentList = auctions.getListings(op);
+				%>
+				<h2>Wishlist</h2>
+				<%if (wishlist.size() == 0){%>
+					<h3>You do not have any items in your wishlist</h3>
+				<%}else{%>
+			<table id="wishlist">
+					<tr>
+						<td>Item Name</td>
+					</tr>
+					<%
+					for (Wishlist item : wishlist) {
+					%>
+					<tr>
+						<td><%=item.getProductName()%></td>
+						<%
+						for (ListingDetails list : currentList){
+							if (list.getName().contains(item.getProductName())){
+							%>
+								<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=" [Item Available!] " + list.getName() + " (Item #" + list.getID() + ") for $" + list.getPrice()%>.</a></td>
+							<%
+							}
+						}
+						%>
+					</tr>
+			</table>
 		</body>
-	<% } %>
+	<% }
+	}
+	}%>
 </html>
