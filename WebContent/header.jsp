@@ -10,7 +10,7 @@
 		<nav id="headerNav">
 			<ul id="headerUl">
 				<li id="headerLiH1">
-					<h1 id="headerH1">Site Name</h1>
+					<h1 id="headerH1">Auctions Project</h1>
 				</li>
 				<% if(session.getAttribute("user")!=null){ %>
 					<li id="headerLi1">
