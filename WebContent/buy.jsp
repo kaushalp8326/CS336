@@ -13,7 +13,7 @@
 
   <form action="#">    
     
-    <label for="upperLimit">  Set upper limit</label>
+    <label for="upperLimit">Set upper limit</label>
     <input type="text" id="upperLimit" name="upperLimit"><br><br>
       
     <label for="increment">Set bid increment</label>

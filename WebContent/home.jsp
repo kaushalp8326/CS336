@@ -101,6 +101,12 @@
 				List<Wishlist> wishlist = alert.getWishlist(def);				
 				AuctionListings auctions = new AuctionListings();
 				List<ListingDetails> currentList = auctions.getListings(op);
+
+				Statement tit = con.createStatement();
+				ResultSet butt;
+				
+				String att1 = "", att2 = "", att3 = "";
+				
 				%>
 				<h2>Wishlist</h2>
 				<%if (wishlist.size() == 0){%>
@@ -117,7 +123,38 @@
 				for (Wishlist item : wishlist) {
 					int found = 0;
 					for (ListingDetails list : currentList) {
-						if ((list.getName().toLowerCase()).contains(item.getProductName().toLowerCase()) || (item.getProductName().toLowerCase()).contains(list.getType().toLowerCase())) {
+						String itemType = list.getType();
+						String pid = list.getID();
+						String query;
+						if (itemType.equals("shoes")) {
+							query = "select a.itemName, s.PID, s.brand, s.shoeSize, s.color from allAuctions a join shoes s on a.ProductID = s.PID where s.PID = '" + pid + "'";
+							butt = tit.executeQuery(query);
+							if (butt.next()){
+								att1 = butt.getString("brand");
+								att2 = butt.getString("shoeSize");
+								att3 = butt.getString("color");
+							}
+						} else if (itemType.equals("pants")) {
+							query = "select a.itemName, p.PID, p.brand, p.pantsSize, p.fabric from allAuctions a join pants p on a.ProductID = p.PID where p.PID = '" + pid + "'";
+							butt = tit.executeQuery(query);
+							if (butt.next()){
+								att1 = butt.getString("brand");
+								att2 = butt.getString("pantsSize");
+								att3 = butt.getString("fabric");
+							}
+						} else {
+							query = "select a.itemName, s.PID, s.style, s.shirtSize, s.fabric from allAuctions a join shirts s on a.ProductID = s.PID where s.PID = '" + pid + "'";
+							butt = tit.executeQuery(query);
+							if (butt.next()){
+								att1 = butt.getString("style");
+								att2 = butt.getString("shirtSize");
+								att3 = butt.getString("fabric");
+							}
+						}
+						if ((list.getName().toLowerCase()).contains(item.getProductName().toLowerCase()) || (item.getProductName().toLowerCase()).contains(list.getType().toLowerCase())
+								|| (item.getProductName().toLowerCase()).contains(att1.toLowerCase()) || (att1.toLowerCase()).contains(item.getProductName().toLowerCase())
+								|| (item.getProductName().toLowerCase()).contains(att2.toLowerCase()) || (att2.toLowerCase()).contains(item.getProductName().toLowerCase())
+								|| (item.getProductName().toLowerCase()).contains(att3.toLowerCase()) || (att3.toLowerCase()).contains(item.getProductName().toLowerCase())) {
 							found = 1;
 							out.println("<tr>");
 							if(written == 0){
