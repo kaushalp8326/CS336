@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ include file="Database.jsp" %>
 <%	
-	String currentUsername = request.getParameter("curUsername");
+	String currentUsername = request.getParameter("Username");
 	Connection con = DriverManager.getConnection(dbURL, dbUser, dbPass);
     Statement st = con.createStatement();
     Statement ru = con.createStatement();
