@@ -117,7 +117,7 @@
 				for (Wishlist item : wishlist) {
 					int found = 0;
 					for (ListingDetails list : currentList) {
-						if (list.getName().contains(item.getProductName()) || item.getProductName().contains(list.getType())) {
+						if ((list.getName().toLowerCase()).contains(item.getProductName().toLowerCase()) || (item.getProductName().toLowerCase()).contains(list.getType().toLowerCase())) {
 							found = 1;
 							out.println("<tr>");
 							if(written == 0){
