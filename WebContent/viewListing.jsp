@@ -112,12 +112,12 @@ if ((userid == null)) {
 			<td>ProductID</td>
 			<td>Type</td>
 			<td>Name</td>
-			<td>Price</td>
-			<td>Start Date</td>
-			<td>End Date</td>
 			<td>Brand/Style</td>
 			<td>Size</td>
 			<td>Color/Fabric</td>
+			<td>Price</td>
+			<td>Start Date</td>
+			<td>End Date</td>
 		</tr>
 		<%
 		for (ListingDetails list : currentList) {
@@ -156,12 +156,12 @@ if ((userid == null)) {
 			<td><a href="viewItemHistory.jsp?&param=<%=list.getID()%>"><%=list.getID()%></a></td>
 			<td><%=list.getType()%></td>
 			<td><%=list.getName()%></td>
-			<td>$<%=list.getPrice()%></td>
-			<td><%=list.getStartDate()%></td>
-			<td><%=list.getEndDate()%></td>
 			<td><%=att1%></td>
 			<td><%=att2%></td>
 			<td><%=att3%></td>
+			<td>$<%=list.getPrice()%></td>
+			<td><%=list.getStartDate()%></td>
+			<td><%=list.getEndDate()%></td>
 		</tr>
 		<%
 		}
